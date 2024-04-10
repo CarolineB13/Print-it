@@ -16,7 +16,8 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
-console.log (slides.length)
+
+let nbDot = slides.length
 
 // ajout des flèches
 
@@ -39,4 +40,19 @@ flecheDroite.classList.add ("arrow" , "arrow_right")
 
 flecheDroite.addEventListener ("click" , (event)=>
 console.log ("je clique sur la flèche droite"))
+
+// ajout des boutons dot
+
+let btnDotActive = document.createElement ("div")
+let barreDeDots = document.querySelector (".dots")
+barreDeDots.appendChild (btnDotActive)
+btnDotActive.classList.add ("dot_selected", "dot")
+
+for (let i = 1 ; i < slides.length ; i++) {
+	let btnDot = document.createElement ("div")
+	let barreDeDots = document.querySelector (".dots")
+	barreDeDots.appendChild (btnDot)
+	btnDot.classList.add ("dot")                               
+
+}
 
