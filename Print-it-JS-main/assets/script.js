@@ -16,3 +16,27 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
+console.log (slides.length)
+
+// ajout des flèches
+
+let flecheGauche = document.createElement ("img")
+let flecheDroite = document.createElement ("img")
+let banner = document.getElementById ("banner")
+banner.appendChild (flecheGauche)
+banner.appendChild (flecheDroite)
+
+flecheGauche.src="assets/images/arrow_left.png"
+flecheGauche.alt="fleche gauche"
+flecheGauche.classList.add ("arrow","arrow_left")
+
+flecheGauche.addEventListener ("click",(event)=>
+console.log ("je clique sur la flèche gauche"))
+
+flecheDroite.src ="assets/images/arrow_right.png"
+flecheDroite.alt = "fleche droite"
+flecheDroite.classList.add ("arrow" , "arrow_right")
+
+flecheDroite.addEventListener ("click" , (event)=>
+console.log ("je clique sur la flèche droite"))
+
