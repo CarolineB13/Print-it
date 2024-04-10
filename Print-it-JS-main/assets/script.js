@@ -43,16 +43,19 @@ console.log ("je clique sur la flèche droite"))
 
 // ajout des boutons dot
 
-let btnDotActive = document.createElement ("div")
-let barreDeDots = document.querySelector (".dots")
-barreDeDots.appendChild (btnDotActive)
-btnDotActive.classList.add ("dot_selected", "dot")
+let containerDots = document.querySelector (".dots")
 
-for (let i = 1 ; i < slides.length ; i++) {
+
+for (let i = 0 ; i < slides.length ; i++) {
 	let btnDot = document.createElement ("div")
-	let barreDeDots = document.querySelector (".dots")
-	barreDeDots.appendChild (btnDot)
+	
+	containerDots.appendChild (btnDot)
 	btnDot.classList.add ("dot")                               
-
+	
 }
+
+let btnDot = containerDots.querySelectorAll(".dot")
+  
+// Ajoutez la classe dot_selected à la première bullet (index 0)
+btnDot[0].classList.add("dot_selected")
 
