@@ -19,15 +19,13 @@ const slides = [
 
 //***** variables *****//
 let i = 0
-const img = document.querySelector(".banner-img")
-const txt = document.querySelector("p")
+let index = 0
+const imgageCarousel = document.querySelector(".banner-img")
+const txtCarousel = document.querySelector("p")
 
 // boutons dots
 let containerDots = document.querySelector (".dots")
 
-
-//index de l'image de départ sur le site
-let imageActive = 0
 
 //flèches droite et gauche
 let flecheGauche = document.createElement ("img")
@@ -58,39 +56,62 @@ let btnDot = containerDots.querySelectorAll(".dot")
 btnDot[0].classList.add ("dot_selected")
 
 
-  // Écouteurs d'événements pour les boutons gauche et droite
-  flecheGauche.addEventListener("click", () => {
+   // Écouteurs d'événements pour les boutons gauche et droite
+
+    ////////*****FLECHE GAUCHE ***********/////
+   flecheGauche.addEventListener("click", () => {
 	console.log ("j'ai cliqué sur la flèche gauche")
+	// on recule de -1 i
 	i--;
+	//si i = -1 on revient à 3 (4-1)
 	if (i === -1) {
-	  i = slides.length - 1;
-	}
-	img.src = "assets/images/slideshow/"+slides[i].image;
-	txt.innerHTML = slides[i].tagLine;
-	dynamicBullets(i);
+		i = slides.length - 1;
+	  }
+ //on change la source de l'image et le texte grâce à i
+	imgageCarousel.src = "assets/images/slideshow/"+slides[i].image;
+	txtCarousel.innerHTML = slides[i].tagLine;
+
+//on enlève la class dot selected
+	btnDot[index].classList.remove ("dot_selected")
+
+// on recule de -1 index
+	index--	
+// si index= -1 on revient à 3
+	if (index === -1) {
+		index = slides.length - 1;
+	  }
+// on ajoute la class dot_selected
+	btnDot[index].classList.add ("dot_selected")
+	
   });
   
+  ////////*****FLECHE DROITE ***********/////
   flecheDroite.addEventListener("click", () => {
 	console.log ("j'ai cliqué sur la flèche droite")
+// on avance de +1 i
 	i++;
+//si i = 4 on revient à 0
 	if (i === slides.length) {
 	  i = 0;
 	}
-	img.src = "assets/images/slideshow/"+slides[i].image;
-	txt.innerHTML = slides[i].tagLine;
-	dynamicBullets(i);
-  });
-  
-  // Fonction pour mettre à jour les bullets dynamiquement
-  function dynamicBullets(count) {
-	btnDot.forEach((dot, index) => {
-	  if (index === count) {
-		dot.classList.add("dot_selected");
-	  } else {
-		dot.classList.remove("dot_selected");
+//on change la source de l'image et le texte grâce à i
+	imgageCarousel.src = "assets/images/slideshow/"+slides[i].image;
+	txtCarousel.innerHTML = slides[i].tagLine;
+
+//on enlève la class dot selected
+	btnDot[index].classList.remove ("dot_selected")
+
+// on avance de +1 index
+	index++
+//si index = 4 on revient à 0
+	if (index === slides.length) {
+		index = 0;
 	  }
-	})}
-  
+// on ajoute la class dot_selected
+	btnDot[index].classList.add ("dot_selected")
+
+  });
+ 
 
 
 
